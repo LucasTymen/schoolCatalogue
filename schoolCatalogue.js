@@ -27,8 +27,7 @@ class School {
 
   quickFacts() {
     console.log(
-      `${this.name} educates ${this.numberOfStudents} students at the ${this.level} school level`
-    );
+      `${this.name} educates ${this.numberOfStudents} students at the ${this.level} school level`);
   }
 
   static pickSubtituteTeacher(substituteTeachers) {
@@ -39,7 +38,7 @@ class School {
 
 class PrimarySchool extends School {
   constructor(name, numberOfStudents, pickupPolicy) {
-    super(name, "primary", numberOfStudents);
+    super(name, `primary`, numberOfStudents);
     this._pickupPolicy = pickupPolicy;
   }
 
@@ -49,7 +48,7 @@ class PrimarySchool extends School {
 }
 
 class HighSchool extends School {
-  constructor(name, numberOfStudents, pickupPolicy) {
+  constructor(name, numberOfStudents, sportsTeams) {
     super(name, "High", numberOfStudents);
     this._sportsTeams = sportsTeams;
   }
@@ -63,5 +62,11 @@ const lorraineHansbury = new PrimarySchool(
   514,
   "Students must be picked up by a parent, guardian, or a family member over the age of 13."
 );
+
 lorraineHansbury.quickFacts()
-console.log(lorraineHansbury.quickFacts)
+console.log(lorraineHansbury);
+
+const sub = School.pickSubstituteTeacher(['Jamal Crawford', 'Lou Williams', 'J. R. Smith', 'James Harden', 'Jason Terry', 'Manu Ginobli']);
+
+const alSmith = new HighSchool ('Al E. Smith', 415,['Baseball', 'Basketball', 'Volleyball', 'Track and Field']);
+console.log(alSmith.sportsTeams);
