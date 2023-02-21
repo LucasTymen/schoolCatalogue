@@ -1,5 +1,5 @@
 class School {
-  constructor(name) {
+  constructor(name, level, numberOfStudents) {
     this._name = name;
     this._level = level;
     this._numberOfStudents = numberOfStudents;
@@ -27,7 +27,7 @@ class School {
 
   quickFacts() {
     console.log(
-      `${school.name} educates ${numberOfStudents} students at the ${level} school level`
+      `${this.name} educates ${this.numberOfStudents} students at the ${this.level} school level`
     );
   }
 
@@ -38,7 +38,7 @@ class School {
 }
 
 class PrimarySchool extends School {
-  constructor(name) {
+  constructor(name, numberOfStudents, pickupPolicy) {
     super(name, "primary", numberOfStudents);
     this._pickupPolicy = pickupPolicy;
   }
@@ -48,12 +48,20 @@ class PrimarySchool extends School {
   }
 }
 
-class HighSchool extends School{
-  constructor(name){
-    super(name, "HighSchool", numberOfStudents)
-    this._sportsTeam = sportsTeams;
+class HighSchool extends School {
+  constructor(name, numberOfStudents, pickupPolicy) {
+    super(name, "High", numberOfStudents);
+    this._sportsTeams = sportsTeams;
   }
   get sportsTeams() {
     return this._sportsTeams;
   }
 }
+
+const lorraineHansbury = new PrimarySchool(
+  `Lorraine Hansbury`,
+  514,
+  "Students must be picked up by a parent, guardian, or a family member over the age of 13."
+);
+lorraineHansbury.quickFacts()
+console.log(lorraineHansbury.quickFacts)
